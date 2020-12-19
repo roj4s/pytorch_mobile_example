@@ -10,10 +10,28 @@
         android:id="@+id/container"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
+
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
     </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/shutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="getFrame"
+            android:text="Capture" />
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

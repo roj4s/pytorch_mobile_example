@@ -1,14 +1,10 @@
 package com.rojas.sr;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.experimental.UseExperimental;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ExperimentalGetImage;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
-import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
@@ -21,9 +17,6 @@ import com.google.common.util.concurrent.ListenableFuture;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.icu.util.UniversalTimeScale;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Surface;
@@ -116,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         String uuid = UUID.randomUUID().toString();
         String filePath = OUTPUT_IMAGE_DIR.getPath() + "/" + uuid + ".jpg";
 
+
         ImageCapture.OutputFileOptions outputFileOptions =
                 new ImageCapture.OutputFileOptions.Builder(new File(filePath)).build();
 
@@ -135,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public void showCapturedImage(String picturePath){
 
         Intent intent = new Intent(this, ShowFrameActivity.class);
-        intent.putExtra("picture_path", picturePath);
+        intent.putExtra(Constants.PICTURE_PATH_KEY, picturePath);
         startActivity(intent);
 
     }
